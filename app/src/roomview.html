@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room View</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="roomview.js" defer></script>
+</head>
+<body>
+    <header>
+        <h3>Teacher User Person</h3>
+    </header>
+    <div id="room-list"></div>
+    <!-- <div>
+        <button id="start-button">Start</button>
+        <button id="edit-button">Edit</button>
+        <button id="qr-button">QR</button>
+    </div> -->
+    <button id="new-room-button">+</button>
+    <form id="new-room-form">
+        <label for="room-name">Room name</label>
+        <input type="text" name="roomName" id="room-name" required>
+        <br>
+        <label for="room-section">Section</label>
+        <input type="text" name="roomSection" id="room-section" required>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

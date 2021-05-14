@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -8,16 +8,32 @@ if (require('electron-squirrel-startup')) { // eslint-disable-line global-requir
 
 const createWindow = () => {
   // Create the browser window.
-  const mainWindow = new BrowserWindow({
+  const roomView = new BrowserWindow({
     width: 800,
     height: 600,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, 'index.html'));
+  roomView.loadFile(path.join(__dirname, 'roomview.html'));
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  // roomView.webContents.openDevTools();
+
+  ipcMain.on('EDIT_ROOM', (event) => {
+    roomView.loadFile(path.join(__dirname, 'newpage.html'))
+  });
+
+  ipcMain.on('LOAD_ROOM', (event) => {
+    roomView.loadFile(path.join(__dirname, 'qr.html'));
+  });
+
+  roomView.on('close', () => {
+    app.quit();
+  })
 };
 
 // This method will be called when Electron has finished
@@ -44,3 +60,19 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.on('DISPLAY_QR', (event) => {
+  // Create the browser window.
+  const qrWindow = new BrowserWindow({
+    width: 300,
+    height: 300,
+    webPreferences: {
+      nodeIntegration: true,
+      contextIsolation: false
+    }
+  });
+
+  // and load the index.html of the app.
+  qrWindow.loadFile(path.join(__dirname, 'qr.html'));
+});
+
