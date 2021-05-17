@@ -41,7 +41,8 @@ function refreshRooms() {
         
         const openButton = document.createElement('button');
         openButton.addEventListener('click', () => {
-            ipcRenderer.send('LOAD_ROOM', room.id);
+            // ipcRenderer.send('LOAD_ROOM', room.id);
+            ipcRenderer.send('DISPLAY_QR', room.id);
         });
         openButton.innerText = "Open Room";
         openButton.classList.add('room-button');
