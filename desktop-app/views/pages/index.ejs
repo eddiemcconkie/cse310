@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>All Classes</title>
+        <link rel="stylesheet" href="/css/main.css">
+    </head>
+    <body>
+        <%- include('../includes/header.ejs') %>
+        <main>
+            <% if (classes.length > 0) { %>
+                <ul class="classSectionList">
+                    <% for (let i = 0; i < classes.length; i++) { %>
+                        <li class="classListItem">
+                            <h3>Class <%= (i + 1) %> - <%= classes[i].name %></h3>
+                            <div class="buttonFlex">
+                                <button><img src="/images/start-class.png" alt="start class"></button>
+                                <button><img src="/images/edit-class.png" alt="edit class"></button>
+                                <button onclick="window.open('http:\/\/localhost:5500/class/<%= classes[i].id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
+                            </div>
+                        </li>
+                    <% } %>
+                    <li class="classListItem">
+                        <a class="addClass" href="/add-class">+</a>
+                    </li>
+                </ul>
+            <% } else { %>
+                <p class="centered">No Classes! Click the button below to add a class.</p>
+                <a class="addClass centered" href="/add-class">+</a>
+            <% } %>
+        </main>
+
+        <script src="/js/mainScript.js"></script>
+        <!-- <script src="./renderer.js"></script> -->
+    </body>
+</html>

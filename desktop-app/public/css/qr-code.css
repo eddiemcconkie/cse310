@@ -1,0 +1,18 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+#credit {
+    right: 0;
+    bottom: -20px;
+    position: fixed;
+    background-color: darkslategray;
+    padding: 12px 10px 25px 25px;
+    border-top-left-radius: 40px;
+    font-family: sans-serif;
+    color: white;
+    font-size: small;
+}

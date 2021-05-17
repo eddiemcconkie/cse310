@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QR Code</title>
+        <link rel="stylesheet" href="/css/qr-code.css">
+    </head>
+    <body>
+        <canvas id="qrDisplay"></canvas>
+
+        <span id="credit">QR Code Generated with QRious</span>
+
+        <script src="/js/qrious.min.js"></script>
+        <script>
+            var qr = new QRious({
+                element: document.querySelector('#qrDisplay'),
+                value: "<%= codeForQR %>",
+                background: 'white',
+                foreground: 'black',
+                backgroundAlpha: 1,
+                foregroundAlpha: 1,
+                level: 'L',             // Error correction level of the QR code (L, M, Q, H)
+                mime: 'image/png',
+                size: 400,
+                padding: null
+            })
+
+            qr.toDataURL()
+        </script>
+    </body>
+</html>
