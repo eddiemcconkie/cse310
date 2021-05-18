@@ -17,8 +17,7 @@ Do get this setup, you need to follow the instructions below:
 If you don't understand Electron, Node.js, Express.js, nor ejs, here are some details that may help you understand how it works:
  - In Node.js, you add other "libraries" (in Node.js they are called "modules"). In the `main.js` we import 2 important Node modules: `electron` (only getting specific functions by using the `{[module-method], [module-method]}`) and `express`. These run the main program, the other 2, are just helper modules.
  - Near the top of `main.js`, we have the following function:
-    ```
-function createWindow() {
+    ```function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
@@ -26,10 +25,8 @@ function createWindow() {
             preload: path.join(__dirname, 'preload.js')
         }
     })
-
     mainWindow.loadURL('http://localhost:5500/')
-}
-    ```
+}```
    This is the function used to create the main window (`BrowserWindow` is one of the methods imported from `electron`)
  - We then have the `app.whenReady()` function. This function is called when the app is ready (hence the name...)
  - We call a `.then` on that function which just allows us to write code that will be ran after the app is ready.
@@ -40,9 +37,7 @@ function createWindow() {
     - `.use(express.static(path.join(__dirname, 'public')))` tells Express to leave paths into the public folder to just go there instead of using trying to use another route
     - `.use(routes)` references the file that we manage the different routes
     - The following is where we finally actually spin-up the server, and then we create the window
-        ```
-.listen(5500, () => {
+        ```.listen(5500, () => {
     createWindow()
-})
-        ```
+})```
  - More coming soon...
