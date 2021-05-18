@@ -34,34 +34,34 @@ If you don't understand Electron, Node.js, Express.js, nor ejs, here are some de
  - We call a `.then` on that function which just allows us to write code that will be ran after the app is ready.
  - The code inside that `.then` is for spinning-up a new web server (which is run on the machine that is running the app).
     - This just sets the templating engine that we want Express to use
-    ```javascript
-    expressApp.set('view engine', 'ejs')
-    ```
+        ```javascript
+        expressApp.set('view engine', 'ejs')
+        ```
       
     - Is setting where Express is supposed to look when rendering a page with ejs
-    ```javascript
-    .set('views', path.join(__dirname,'views'))
-    ```
+        ```javascript
+        .set('views', path.join(__dirname,'views'))
+        ```
       
     - Just makes it easier to get data from POST and GET requests
-    ```javascript
-    .use(bodyParser.urlencoded({extended: false}))
-    ```
+        ```javascript
+        .use(bodyParser.urlencoded({extended: false}))
+        ```
       
     - Tells Express to leave paths into the public folder to just go there instead of using trying to use another route
-    ```javascript
-    .use(express.static(path.join(__dirname, 'public')))
-    ```
+        ```javascript
+        .use(express.static(path.join(__dirname, 'public')))
+        ```
       
     - References the file that we manage the different routes
-    ```javascript
-    .use(routes)
-    ```
+        ```javascript
+        .use(routes)
+        ```
       
     - This is where we finally actually spin-up the server, and then we create the window
-    ```javascript
-    .listen(5500, () => {
-        createWindow()
-    })
-    ```
+        ```javascript
+        .listen(5500, () => {
+            createWindow()
+        })
+        ```
  - More coming soon...
