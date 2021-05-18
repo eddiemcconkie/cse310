@@ -11,50 +11,73 @@
         <%- include("../includes/header.ejs") %>
         <main>
             <h2 class="centered"><%= (editing) ? "Edit Class Details" : "Add New Class" %></h2>
-            <form action="/add-class" method="post" class="centered">
+            <form action="<%= (editing) ? '/edit-class' : '/add-class' %>" method="post" class="centered">
                 <div class="inputContainer">
-                    <input type="text" name="className" id="className" required value="CSE 310">
+                    <input type="text" name="className" id="className" required value="<%= (editing) ? classData.name : '' %>">
                     <label for="className">Class Name</label>
                 </div>
                 <label>What Days Is This Class Offered?</label>
                 <div class="weekDayChoice">
                     <div class="mChoiceContainer">
-                        <input type="checkbox" name="Monday" id="Monday" value="Monday" checked>
+                        <% if (editing && classData.days.includes("Monday")) { %>
+                            <input type="checkbox" name="Monday" id="Monday" value="Monday" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="Monday" id="Monday" value="Monday">
+                        <% } %>
                         <label for="Monday">Monday</label>
                     </div>
                     <div class="mChoiceContainer">
-                        <input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday" checked>
+                        <% if (editing && classData.days.includes("Tuesday")) { %>
+                            <input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="Tuesday" id="Tuesday" value="Tuesday">
+                        <% } %>
                         <label for="Tuesday">Tuesday</label>
                     </div>
                     <div class="mChoiceContainer">
-                        <input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday" checked>
+                        <% if (editing && classData.days.includes("Wednesday")) { %>
+                            <input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="Wednesday" id="Wednesday" value="Wednesday">
+                        <% } %>
                         <label for="Wednesday">Wednesday</label>
                     </div>
                     <div class="mChoiceContainer">
-                        <input type="checkbox" name="Thursday" id="Thursday" value="Thursday" checked>
+                        <% if (editing && classData.days.includes("Thursday")) { %>
+                            <input type="checkbox" name="Thursday" id="Thursday" value="Thursday" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="Thursday" id="Thursday" value="Thursday">
+                        <% } %>
                         <label for="Thursday">Thursday</label>
                     </div>
                     <div class="mChoiceContainer">
-                        <input type="checkbox" name="Friday" id="Friday" value="Friday">
+                        <% if (editing && classData.days.includes("Friday")) { %>
+                            <input type="checkbox" name="Friday" id="Friday" value="Friday" checked>
+                        <% } else { %>
+                            <input type="checkbox" name="Friday" id="Friday" value="Friday">
+                        <% } %>
                         <label for="Friday">Friday</label>
                     </div>
                 </div>
                 <div class="inputContainer">
-                    <input type="datetime" name="classStartTime" id="startTime" required value="3:15pm">
+                    <input type="datetime" name="classStartTime" id="startTime" required value="<%= (editing) ? classData.times[0] : '' %>">
                     <label for="startTime">Class Start Time</label>
                 </div>
                 <div class="inputContainer">
-                    <input type="datetime" name="classEndTime" id="endTime" required value="4:15pm">
+                    <input type="datetime" name="classEndTime" id="endTime" required value="<%= (editing) ? classData.times[1] : '' %>">
                     <label for="endTime">Class End Time</label>
                 </div>
                 <div class="inputContainer">
-                    <input type="text" name="classSemester" id="classSemester" required value="Spring">
+                    <input type="text" name="classSemester" id="classSemester" required value="<%= (editing) ? classData.semester : '' %>">
                     <label for="classSemester">Semester Of Class</label>
                 </div>
                 <div class="inputContainer">
-                    <input type="number" name="classSection" id="classSection" required value="2">
+                    <input type="number" name="classSection" id="classSection" required value="<%= (editing) ? classData.section : '' %>">
                     <label for="classSection">Class Section</label>
                 </div>
+                <% if (editing) { %>
+                    <input type="hidden" name="editedClassId" value="<%= classData.id %>">
+                <% } %>
                 <input type="submit" value="<%= (editing) ? 'Edit Class' :'Add Class' %>">
             </form>
         </main>
