@@ -38,22 +38,22 @@ If you don't understand Electron, Node.js, Express.js, nor ejs, here are some de
         expressApp.set('view engine', 'ejs')
         ```
       
-    - Is setting where Express is supposed to look when rendering a page with ejs
+    - This line is setting where Express is supposed to look when rendering a page with ejs
         ```javascript
         .set('views', path.join(__dirname,'views'))
         ```
       
-    - Just makes it easier to get data from POST and GET requests
+    - This makes it easier to get data from POST and GET requests
         ```javascript
         .use(bodyParser.urlencoded({extended: false}))
         ```
       
-    - Tells Express to leave paths into the public folder to just go there instead of using trying to use another route
+    - The following tells Express to leave paths into the public folder to just go there instead of using trying to use another route
         ```javascript
         .use(express.static(path.join(__dirname, 'public')))
         ```
       
-    - References the file that we manage the different routes
+    - This just references the file that we manage the different routes
         ```javascript
         .use(routes)
         ```
@@ -64,4 +64,7 @@ If you don't understand Electron, Node.js, Express.js, nor ejs, here are some de
             createWindow()
         })
         ```
+ - The `routes.js` file separates the different routes that we have set, and then calls the method from the controller.
+   We pass the different methods between files by using the `module.exports = [something]` or `exports.[something] = [something-else]`
+ - The `controller.js` is where all the real action happens, it's where we connect the data (normally through a model) to the views (which are rendered with ejs by `res.render('/path/to/ejs/file' [, {options}]))
  - More coming soon...
