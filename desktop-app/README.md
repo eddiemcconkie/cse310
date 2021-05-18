@@ -18,16 +18,16 @@ If you don't understand Electron, Node.js, Express.js, nor ejs, here are some de
  - In Node.js, you add other "libraries" (in Node.js they are called "modules"). In the `main.js` we import 2 important Node modules: `electron` (only getting specific functions by using the `{[module-method], [module-method]}`) and `express`. These run the main program, the other 2, are just helper modules.
  - Near the top of `main.js`, we have the following function:
     ```javascript
-function createWindow() {
-    const mainWindow = new BrowserWindow({
-        width: 800,
-        height: 600,
-        webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
-        }
-    })
-    mainWindow.loadURL('http://localhost:5500/')
-}
+    function createWindow() {
+        const mainWindow = new BrowserWindow({
+            width: 800,
+            height: 600,
+            webPreferences: {
+                preload: path.join(__dirname, 'preload.js')
+            }
+        })
+        mainWindow.loadURL('http://localhost:5500/')
+    }
     ```
    This is the function used to create the main window (`BrowserWindow` is one of the methods imported from `electron`)
  - We then have the `app.whenReady()` function. This function is called when the app is ready (hence the name...)
@@ -40,8 +40,8 @@ function createWindow() {
     - `.use(routes)` references the file that we manage the different routes
     - The following is where we finally actually spin-up the server, and then we create the window
         ```javascript
-.listen(5500, () => {
-    createWindow()
-})
+        .listen(5500, () => {
+            createWindow()
+        })
         ```
  - More coming soon...
