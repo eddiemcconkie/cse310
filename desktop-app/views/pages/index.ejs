@@ -21,7 +21,7 @@
                                     <input type="hidden" name="editClassId" value="<%= classData.id %>">
                                     <button type="submit"><img src="/images/edit-class.png" alt="edit class"></button>
                                 </form>
-                                <button onclick="window.open('http:\/\/localhost:5500/class/<%= classData.id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
+                                <button onclick="window.open('/class/<%= classData.id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
                             </div>
                         </li>
                     <% }) %>

@@ -117,6 +117,7 @@ button img {
 
 form {
     width: max-content;
+    max-width: 100%;
 }
 .inputContainer {
     position: relative;
@@ -158,11 +159,16 @@ form input:not([type="checkbox"]):focus,
 form textarea:focus {
     box-shadow: inset 0 0 5px darkslategray;
 }
-input[type="submit"] {
+input[type="submit"],
+form a.btn {
     width: 350px;
+    margin: auto;
+    display: block;
     padding: 0.5rem;
+    font-size: 1rem;
     font-weight: bold;
     border-radius: 5px;
+    text-decoration: none;
     color: rgb(65, 105, 225);
     background-color: rgba(65, 105, 225, 0.1);
     border: 4px solid rgb(65, 105, 225);
@@ -171,11 +177,22 @@ input[type="submit"] {
 }
 input[type="submit"]:hover,
 input[type="submit"]:focus,
-input[type="submit"]:active {
+input[type="submit"]:active,
+form a.btn:hover,
+form a.btn:focus,
+form a.btn:active {
     cursor: pointer;
     background-color: rgba(65, 105, 225, 1);
     color: white;
 }
+
+form a.btn.cancel {
+    width: 70%;
+    margin-top: 10px;
+    font-size: 0.8rem;
+}
+
+
 div.weekDayChoice {
     margin: auto;
     display: grid;
