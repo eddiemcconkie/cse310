@@ -12,9 +12,9 @@
         <main>
             <% if (classes.length > 0) { %>
                 <ul class="classSectionList">
-                    <% classes.forEach((classData, index) => { %>
+                    <% classes.forEach((classData) => { %>
                         <li class="classListItem">
-                            <h3>Class <%= (index + 1) %> - <%= classData.name %></h3>
+                            <h3><%= classData.name %>: Section <%= classData.section %></h3>
                             <div class="buttonFlex">
                                 <button><img src="/images/start-class.png" alt="start class"></button>
                                 <form action="/edit-class-view" method="post">
