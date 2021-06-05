@@ -1,58 +1,25 @@
 {
-  "name": "app",
-  "productName": "app",
-  "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/index.js",
-  "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "echo \"No linting configured\""
-  },
-  "keywords": [],
-  "author": {
-    "name": "Edward",
-    "email": "edwardmcconkie@gmail.com"
-  },
-  "license": "MIT",
-  "config": {
-    "forge": {
-      "packagerConfig": {},
-      "makers": [
-        {
-          "name": "@electron-forge/maker-squirrel",
-          "config": {
-            "name": "app"
-          }
-        },
-        {
-          "name": "@electron-forge/maker-zip",
-          "platforms": [
-            "darwin"
-          ]
-        },
-        {
-          "name": "@electron-forge/maker-deb",
-          "config": {}
-        },
-        {
-          "name": "@electron-forge/maker-rpm",
-          "config": {}
-        }
-      ]
+    "name": "cse310-team-project",
+    "version": "1.0.0",
+    "description": "Team project building a mobile app (built with Kotlin) that will communicate with a desktop application (built with Electron)",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron ."
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/eddiemcconkie/cse310.git"
+    },
+    "author": "Eddie McConkie, Jacob Hornbeck, Jared Steadman, Logan Huston, Rose Towne",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/eddiemcconkie/cse310/issues"
+    },
+    "homepage": "https://github.com/eddiemcconkie/cse310#readme",
+    "dependencies": {
+        "ejs": "^3.1.6",
+        "electron": "^12.0.7",
+        "express": "^4.17.1",
+        "qrious": "^4.0.2"
     }
-  },
-  "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
-  },
-  "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.54",
-    "@electron-forge/maker-deb": "^6.0.0-beta.54",
-    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
-    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
-    "@electron-forge/maker-zip": "^6.0.0-beta.54",
-    "electron": "12.0.7"
-  }
 }
