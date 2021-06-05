@@ -59,3 +59,13 @@ exports.getQR = (req, res, next) => {
         codeForQR: req.params.classId
     })
 }
+
+exports.getCreatePoll = (req, res, next) => {
+    res.render('pages/create-poll.ejs', {
+        // editing: false
+    })
+}
+
+exports.postCreatePoll = (req, res, next) => {
+    console.log(req.body.json);
+}

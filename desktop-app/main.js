@@ -18,7 +18,7 @@ function createWindow() {
     mainWindow.loadURL('http://localhost:5500/')
 }
 
-app.whenReady().then(() => {
+app.on('ready', () => {
     expressApp.set('view engine', 'ejs')
               .set('views', path.join(__dirname,'views'))
               .use(bodyParser.urlencoded({extended: false}))

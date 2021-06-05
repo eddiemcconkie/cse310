@@ -18,7 +18,7 @@
                             <div class="buttonFlex">
                                 <button><img src="/images/start-class.png" alt="start class"></button>
                                 <button><img src="/images/edit-class.png" alt="edit class"></button>
-                                <button onclick="window.open('http:\/\/localhost:5500/class/<%= classes[i].id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
+                                <button onclick="window.open('/class/<%= classes[i].id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
                             </div>
                         </li>
                     <% } %>
@@ -30,6 +30,8 @@
                 <p class="centered">No Classes! Click the button below to add a class.</p>
                 <a class="addClass centered" href="/add-class">+</a>
             <% } %>
+            <a class="createPoll" href="/create-poll">Create poll</a>
+
         </main>
 
         <script src="/js/mainScript.js"></script>

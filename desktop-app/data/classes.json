@@ -1,1 +1,49 @@
-[{"name":"CSE 310","times":{"days":["Monday","Tuesday","Wednesday","Thursday"],"times":["3:15pm","4:15pm"]},"id":"cse310spring2021s1"},{"name":"CSE 341","times":{"days":["Tuesday","Thursday"],"times":["9:45am","10:15am"]},"id":"cse341spring2021s1"},{"name":"CSE 310","times":{"days":["Monday","Tuesday","Wednesday","Thursday",null],"times":["3:15pm","4:15pm"]},"id":"cse310Spring2021s2"}]
+[
+    {
+        "name": "CSE 310",
+        "times": {
+            "days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday"
+            ],
+            "times": [
+                "3:15pm",
+                "4:15pm"
+            ]
+        },
+        "id": "cse310spring2021s1"
+    },
+    {
+        "name": "CSE 341",
+        "times": {
+            "days": [
+                "Tuesday",
+                "Thursday"
+            ],
+            "times": [
+                "9:45am",
+                "10:15am"
+            ]
+        },
+        "id": "cse341spring2021s1"
+    },
+    {
+        "name": "CSE 310",
+        "times": {
+            "days": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                null
+            ],
+            "times": [
+                "3:15pm",
+                "4:15pm"
+            ]
+        },
+        "id": "cse310Spring2021s2"
+    }
+]
