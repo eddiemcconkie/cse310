@@ -10,5 +10,8 @@ router.get('/class/:classId/qr-code', controller.getQR)
       .get('/', controller.getHomepage)
       .get('/test-server', controller.getTestServer)
       .post('/send-message', controller.postSendMessage)
+      .get('/', controller.getHomepage)
+      .get('/create-poll', controller.getCreatePoll)
+      .post('/create-poll', controller.postCreatePoll)
 
 module.exports = router
