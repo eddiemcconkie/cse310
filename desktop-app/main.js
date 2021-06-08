@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, ipcMain} = require('electron')
 const bodyParser = require('body-parser')
 const express = require("express")
 const path = require('path')
@@ -6,12 +6,40 @@ const path = require('path')
 const expressApp = express()
 const routes = require("./routes")
 
+const http = require('http');
+const socketio = require('socket.io');
+const serverApp = express();
+
+const server = http.createServer(serverApp);
+const io = socketio(server);
+
+serverApp.use(express.static(path.join(__dirname, 'server')));
+
+io.on('connection', socket => {
+    // console.log('New WS Connection...');
+})
+
+server.listen(8000, () => console.log("Server listening on port 8000"));
+
+ipcMain.on('message', (event, message) => {
+    // console.log(message);
+    io.emit('message', message);
+})
+// expressApp.get('/', (req, res) => {
+    // if (req.query.msg) {
+    // let msg = req.query.msg;
+    // serverApp.emit('message', msg);
+    // }
+// });
+
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
         height: 600,
         webPreferences: {
-            preload: path.join(__dirname, 'preload.js')
+            preload: path.join(__dirname, 'preload.js'),
+            nodeIntegration: true,
+            contextIsolation: false
         }
     })
 

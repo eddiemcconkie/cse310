@@ -8,5 +8,7 @@ router.get('/class/:classId/qr-code', controller.getQR)
       .post('/edit-class-view', controller.getEditClass)
       .post('/edit-class', controller.postEditClass)
       .get('/', controller.getHomepage)
+      .get('/test-server', controller.getTestServer)
+      .post('/send-message', controller.postSendMessage)
 
 module.exports = router

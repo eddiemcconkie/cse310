@@ -87,3 +87,13 @@ exports.getQR = (req, res, next) => {
         codeForQR: req.params.classId
     })
 }
+
+exports.getTestServer = (req, res, next) => {
+    res.render('pages/server-test.ejs', {});
+}
+
+exports.postSendMessage = (req, res, next) => {
+    let msg = req.body.msg;
+    // console.log(msg);
+    res.redirect('/', msg);
+}
