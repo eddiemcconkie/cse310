@@ -1,3 +1,5 @@
+// Teacher display page
+
 const { ipcRenderer } = require('electron');
 
 let clickCount = {red: 0, blue: 0};

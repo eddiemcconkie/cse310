@@ -1,4 +1,6 @@
-import "homescreen.js"
+// Student client page
+
+// import "homescreen.js"
 
 const socket = io();
 
