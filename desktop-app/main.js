@@ -13,11 +13,9 @@ const serverApp = express();
 const server = http.createServer(serverApp);
 const io = socketio(server);
 
-serverApp.use(express.static(path.join(__dirname, 'server')));
+let teams = {red: [], blue: []}
 
-io.on('connection', socket => {
-    // console.log('New WS Connection...');
-})
+serverApp.use(express.static(path.join(__dirname, 'server')));
 
 server.listen(8000, () => console.log("Server listening on port 8000"));
 
@@ -25,12 +23,6 @@ ipcMain.on('message', (event, message) => {
     // console.log(message);
     io.emit('message', message);
 })
-// expressApp.get('/', (req, res) => {
-    // if (req.query.msg) {
-    // let msg = req.query.msg;
-    // serverApp.emit('message', msg);
-    // }
-// });
 
 function createWindow() {
     const mainWindow = new BrowserWindow({
@@ -41,6 +33,44 @@ function createWindow() {
             nodeIntegration: true,
             contextIsolation: false
         }
+    })
+
+    // Socket connection
+    io.on('connection', socket => {
+
+        let id = socket.id;
+        
+        // Update the team count on the main page
+        function updateTeams() {
+            let teamsCount = {red: teams.red.length, blue: teams.blue.length};
+            mainWindow.send('update-teams', teamsCount);
+        }
+
+        // Assign new users to a team and update their info
+        let team;
+        if (teams.red.length <= teams.blue.length) {
+            teams.red.push(id);
+            socket.emit('set-color', 'red');
+            team = 'red';
+        } else {
+            teams.blue.push(id);
+            socket.emit('set-color', 'blue');
+            team = 'blue';
+        }
+        updateTeams();
+        
+        // Cookie clicker: When a click is received from the client, increase the count on the main page
+        socket.on('click', () => {
+            mainWindow.send('add-click-count', team);
+        })
+
+        // Remove users from their team when disconnected
+        socket.on('disconnect', () => {
+            // console.log(teams[team]);
+            let index = teams[team].indexOf(id);
+            teams[team].splice(index, 1);
+            updateTeams();
+        })
     })
 
     mainWindow.loadURL('http://localhost:5500/')
