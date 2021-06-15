@@ -89,6 +89,12 @@ exports.getQR = (req, res, next) => {
     })
 }
 
+exports.getDemoQR = (req, res, next) => {
+    res.render('pages/qr-code.ejs', {
+        codeForQR: "http://"+require("ip").address()+":8000"
+    })
+}
+
 exports.getTestServer = (req, res, next) => {
     res.render('pages/server-test.ejs', {});
 }
