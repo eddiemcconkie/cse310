@@ -1,11 +1,16 @@
 // Student client page
 
-// import "homescreen.js"
-
 const socket = io();
+
+// const { renderPoll } = require('./renderPoll.js');
+// import { renderPoll } from './renderPoll.js';
 
 socket.on('message', (message) => {
     document.querySelector('#message').innerHTML = message;
+})
+
+socket.on('display-poll', (pollData) => {
+    renderPoll(pollData);
 })
 
 socket.on('set-color', (color) => {

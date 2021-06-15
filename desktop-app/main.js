@@ -24,6 +24,20 @@ ipcMain.on('message', (event, message) => {
     io.emit('message', message);
 })
 
+let pollResponses = {};
+
+// Teacher sends poll to students
+ipcMain.on('post-poll', (event, pollData) => {
+    io.emit('display-poll', pollData);
+    pollResponses = pollData;
+    pollResponses.questions.forEach((question) => {
+        question.responses = question.responses.map((response) => {
+            return {name: response, count: 0}
+        });
+    })
+    console.log(pollResponses.questions[0]);
+})
+
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
@@ -59,11 +73,22 @@ function createWindow() {
         }
         updateTeams();
         
-        // Cookie clicker: When a click is received from the client, increase the count on the main page
+        // Dolphin clicker: When a click is received from the client, increase the count on the main page
         socket.on('click', () => {
             mainWindow.send('add-click-count', team);
         })
 
+        socket.on('poll-respond', (answers) => {
+            console.dir(pollResponses.questions[0]);
+            for (let question = 0; question < answers.length; question++) {
+                let response = answers[question];
+                // console.log(response);
+                pollResponses.questions[question].responses[response].count++;
+                console.log('question:', question, 'response:', response, 'total:', pollResponses.questions[question].responses[response]);
+            }
+            mainWindow.send('update-poll-responses', pollResponses);
+        })
+        
         // Remove users from their team when disconnected
         socket.on('disconnect', () => {
             // console.log(teams[team]);

@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const {ipcRenderer} = require('electron');
 const classDataFilePath = path.join(__dirname,'data','classes.json')
 
 function readClassFile(cb) {
@@ -99,11 +100,11 @@ exports.postSendMessage = (req, res, next) => {
 }
 
 exports.getCreatePoll = (req, res, next) => {
-    res.render('pages/create-poll.ejs', {
-        // editing: false
-    })
+    res.render('pages/create-poll.ejs', {})
 }
 
 exports.postCreatePoll = (req, res, next) => {
-    console.log(req.body.json);
+    // console.log(req.body.json);
+    // res.render('pages/poll-results.ejs');
+    // ipcRenderer.send('post-poll', req.body.json);
 }
