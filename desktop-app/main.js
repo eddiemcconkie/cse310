@@ -6,6 +6,10 @@ const path = require('path')
 const expressApp = express()
 const routes = require("./routes")
 
+const dotenv = require('dotenv');
+dotenv.config();
+const port = process.env.PORT || 3000;
+
 const http = require('http');
 const socketio = require('socket.io');
 const serverApp = express();
@@ -17,26 +21,41 @@ let teams = {red: [], blue: []}
 
 serverApp.use(express.static(path.join(__dirname, 'server')));
 
-server.listen(8000, () => console.log("Server listening on port 8000"));
+server.listen(port, () => console.log(`Server listening on port ${port}`));
 
 ipcMain.on('message', (event, message) => {
     // console.log(message);
     io.emit('message', message);
 })
 
+const fs = require('fs');
+
+function loadPoll(filename) {
+    const filepath = path.join(__dirname, 'data', filename);
+    return JSON.parse(fs.readFileSync(filepath));
+}
+
 let pollResponses = {};
 
 // Teacher sends poll to students
 ipcMain.on('post-poll', (event, pollData) => {
-    io.emit('display-poll', pollData);
-    pollResponses = pollData;
+    // io.emit('display-poll', pollData);
+    let filename = 'poll.json';
+    let data = loadPoll(filename);
+    io.emit('display-poll', data);
+    // pollResponses = pollData;
+    pollResponses = data;
     pollResponses.questions.forEach((question) => {
         question.responses = question.responses.map((response) => {
             return {name: response, count: 0}
         });
     })
-    console.log(pollResponses.questions[0]);
+    // console.log(pollResponses.questions[0]);
 })
+
+function sendPoll(pollData) {
+    
+}
 
 function createWindow() {
     const mainWindow = new BrowserWindow({

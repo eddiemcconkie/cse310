@@ -75,6 +75,22 @@ document.querySelector('#save-poll').addEventListener('click', () => {
     // console.log(json);
 })
 
+
+// Poll responses
 ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
-    console.log(pollResponses);
+    // console.log(pollResponses);
+    const pollResults = document.querySelector('#poll-results');
+    pollResults.innerHTML = '';
+
+    pollResponses.questions.forEach(question => {
+        const label = document.createElement('h2');
+        label.innerText = question.label;
+        pollResults.appendChild(label);
+        question.responses.forEach(response => {
+            const responseCount = document.createElement('p');
+            responseCount.innerHTML = `${response.name} — Votes: ${response.count}`;
+            pollResults.appendChild(responseCount);
+        });
+    });
 })
+
