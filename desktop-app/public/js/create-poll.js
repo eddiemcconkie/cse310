@@ -1,3 +1,5 @@
+const { ipcRenderer } = require('electron');
+
 function addNewQuestion() {
     const questionsList = document.querySelector('#questions-list');
     const div = document.createElement('div');
@@ -65,8 +67,14 @@ document.querySelector('#save-poll').addEventListener('click', () => {
             json.questions[numQuestions].responses.push(element.value);
         }
     });
-    document.querySelector('#json').value = JSON.stringify(json);
+    // let jsonData = JSON.stringify(json);
+    // document.querySelector('#json').value = jsonData;
+    ipcRenderer.send('post-poll', json);
     document.querySelector('form').submit();
     // console.log(JSON.stringify(json));
     // console.log(json);
+})
+
+ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
+    console.log(pollResponses);
 })

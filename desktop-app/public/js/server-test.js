@@ -16,6 +16,10 @@ ipcRenderer.on('add-click-count', (event, team) => {
     displayClickCount();
 });
 
+// ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
+//     console.log(event, pollResponses);
+// })
+
 ipcRenderer.on('update-teams', (event, teamsCount) => {
     // document.querySelector('#teams-count').innerHTML = `
     // Red: ${teamsCount.red}
