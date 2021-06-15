@@ -3,6 +3,7 @@ const controller = require("./controller")
 const router = express.Router()
 
 router.get('/class/:classId/qr-code', controller.getQR)
+      .get('/demo-qr-display', controller.getDemoQR)
       .get('/add-class', controller.getAddClass)
       .post('/add-class', controller.postAddClass)
       .post('/edit-class-view', controller.getEditClass)
