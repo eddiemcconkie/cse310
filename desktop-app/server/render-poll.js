@@ -1,7 +1,4 @@
-// export default function renderPoll(pollData) {
 function renderPoll(pollData) {
-    // console.dir(pollData);
-    // console.log(pollData.title, pollData.questions);
 
     const page = document.querySelector('#page');
     page.innerHTML = '';

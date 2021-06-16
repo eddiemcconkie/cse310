@@ -6,10 +6,10 @@
 <body>
     <button onclick="window.open('/demo-qr-display', 'QR Code', 'width=600, height=600')">Generate Demo QR Code</button>
     <ul id="users"></ul>
-    <form action="/send-message" method="post">
+    <!-- <form action="/send-message" method="post">
         <input type="text" name="msg" id="msg">
         <button type="submit" id="submit">Send</button>
-    </form>
+    </form> -->
     <p id="teams-count"></p>
     <!-- <p id="click-count"></p> -->
     <table>
@@ -22,7 +22,13 @@
             <td id="blue-click-count"></td>
         </tr>
     </table>
-    <a href="/">Back</a>
+    <select name="screen" id="screen">
+        <option disabled selected value>Select a screen to display</option>
+    </select>
+    
     <script src="js/server-test.js"></script>
 </body>
+<footer>
+    <a href="/">Back</a>
+</footer>
 </html>

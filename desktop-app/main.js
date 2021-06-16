@@ -28,6 +28,11 @@ ipcMain.on('message', (event, message) => {
     io.emit('message', message);
 })
 
+ipcMain.on('change-screen-client', (event, screen) => {
+    // console.log(event, screen);
+    io.emit('change-screen-client', screen);
+})
+
 const fs = require('fs');
 
 function loadPoll(filename) {
@@ -98,12 +103,12 @@ function createWindow() {
         })
 
         socket.on('poll-respond', (answers) => {
-            console.dir(pollResponses.questions[0]);
+            // console.dir(pollResponses.questions[0]);
             for (let question = 0; question < answers.length; question++) {
                 let response = answers[question];
                 // console.log(response);
                 pollResponses.questions[question].responses[response].count++;
-                console.log('question:', question, 'response:', response, 'total:', pollResponses.questions[question].responses[response]);
+                // console.log('question:', question, 'response:', response, 'total:', pollResponses.questions[question].responses[response]);
             }
             mainWindow.send('update-poll-responses', pollResponses);
         })

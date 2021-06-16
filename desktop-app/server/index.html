@@ -16,13 +16,17 @@
 </head>
 <body>
     <div id="page">
-        <h3>Connected to Server!</h3>
-        <p id="message"></p>
-        <p>Team: <span id="team-color"></span></p>
-        <button id="clicker">CLICK ME</button>
+        <!-- <p id="message"></p> -->
     </div>
+
+    <!-- Socket script -->
     <script src="/socket.io/socket.io.js"></script>
+    <!-- Scripts for loading each page -->
+    <script src="homeclasses.js"></script>
     <script src="render-poll.js"></script>
+    <script src="waitscreen.js"></script>
+    <script src="clicker.js"></script>
+    <!-- Main script -->
     <script src="index.js"></script>
 </body>
 </html>
