@@ -41,7 +41,7 @@ ipcRenderer.on('update-teams', (event, teamsCount) => {
 const screenSelect = document.querySelector('#screen');
 // console.log(screenSelect);
 
-const screens = ['homeclasses', 'render-poll', 'waitscreen', 'clicker'];
+const screens = ['homeclasses', 'render-poll', 'waitscreen', 'clicker', 'video'];
 screens.forEach(screen => {
     const option = document.createElement('option');
     option.value = screen;

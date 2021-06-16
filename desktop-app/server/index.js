@@ -24,7 +24,8 @@ const screens = {
     'homeclasses': renderHomeClasses,
     'render-poll': renderPoll,
     'waitscreen': renderWaitScreen,
-    'clicker': renderClicker
+    'clicker': renderClicker,
+    'video': renderVideo
 }
 
 socket.on('change-screen-client', (screen) => {
