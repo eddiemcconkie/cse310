@@ -232,3 +232,65 @@ div.weekDayChoice div.mChoiceContainer input:checked + label {
     opacity: 1;
 }
 
+
+
+/* Poll results styles */
+    .poll-stats-bar {
+        position: relative;
+        padding: 0.75rem 0.5rem;
+        max-width: calc(100% - 200px);
+        background-color: #4169e1;
+        margin-bottom: 10px;
+    }
+    .poll-stats-bar p {
+        width: max-content;
+        transform: translate(0, -50%);
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        position: absolute;
+        overflow: hidden;
+        right: -182px;
+        width: 200px;
+        margin: 0;
+        top: 50%;
+    }
+    .poll-stats-bar p span {
+        color: white;
+        display: inline-block;
+        text-align: right;
+        width: 15px;
+    }
+/* Poll results styles */
+
+
+/* Clicker display styles */
+    #clicker-display {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        justify-items: center;
+        height: 300px;
+    }
+    #red-team-count, #blue-team-count {
+        align-self: end;
+    }
+    #red-click-count, #blue-click-count {
+        font-size: 3rem;
+    }
+    .hide {
+        display: none !important;
+    }
+    footer {
+        display: absolute;
+        bottom: 0;
+    }
+
+    @keyframes load {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+/* Clicker display styles */

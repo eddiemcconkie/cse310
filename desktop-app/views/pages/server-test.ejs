@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Server Controller</title>
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
     <button onclick="window.open('/demo-qr-display', 'QR Code', 'width=600, height=600')">Generate Demo QR Code</button>
@@ -16,16 +17,12 @@
 
     <p id="teams-count"></p>
     <!-- <p id="click-count"></p> -->
-    <table id="clicker-table" hidden>
-        <tr>
-            <th id="red-team-count" style="color: red"></th>
-            <th id="blue-team-count" style="color: blue"></th>
-        </tr>
-        <tr>
-            <td id="red-click-count"></td>
-            <td id="blue-click-count"></td>
-        </tr>
-    </table>
+    <div id="clicker-display" class="hide">
+        <span id="red-team-count" style="color: red"></span>
+        <span id="blue-team-count" style="color: blue"></span>
+        <span id="red-click-count"></span>
+        <span id="blue-click-count"></span>
+    </div>
 
     <div id="poll-results"></div>
     

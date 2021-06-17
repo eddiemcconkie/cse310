@@ -9,6 +9,8 @@ const socket = io();
 //     document.querySelector('#message').innerHTML = message;
 // })
 let teamColor = '';
+let teamsCount = { red: 0, blue: 0 };
+let start = false;
 
 socket.on('display-poll', (pollData) => {
     renderPoll(pollData);
@@ -20,17 +22,27 @@ socket.on('set-color', (color) => {
     // document.querySelector('#team-color').className = color;
 })
 
+socket.on('teamsCount', (count) => {
+    teamsCount = count
+})
+
 const screens = {
     'homeclasses': renderHomeClasses,
-    'poll': renderPoll,
     'waitscreen': renderWaitScreen,
+    'poll': renderPoll,
+    'video': renderVideo,
     'clicker': renderClicker,
-    'video': renderVideo
+    'finalPoll': loadFinalPoll
 }
 
+// Automatically load the home classes view
+screens['homeclasses']()
+
 socket.on('change-screen-client', (screen) => {
-    // console.log(screen);
     screens[screen]();
+    if (screen === 'clicker') {
+        socket.emit('updateTeamsNow', teamsCount)
+    }
 })
 
 // document.querySelector('#clicker').addEventListener('click', () => {

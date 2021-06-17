@@ -25,8 +25,8 @@ ipcRenderer.on('update-teams', (event, teamsCount) => {
     // Red: ${teamsCount.red}
     // Blue: ${teamsCount.blue}
     // `;
-    document.querySelector('#red-team-count').innerHTML = `Red: ${teamsCount.red}`;
-    document.querySelector('#blue-team-count').innerHTML = `Blue: ${teamsCount.blue}`;
+    document.querySelector('#red-team-count').innerHTML = `Red`;
+    document.querySelector('#blue-team-count').innerHTML = `Blue`;
 })
 
 // document.querySelector('#submit').addEventListener('click', (event) => {
@@ -41,7 +41,7 @@ ipcRenderer.on('update-teams', (event, teamsCount) => {
 const screenSelect = document.querySelector('#screen');
 // console.log(screenSelect);
 
-const screens = ['homeclasses', 'poll', 'waitscreen', 'clicker', 'video'];
+const screens = ['homeclasses', 'waitscreen', 'poll', 'video', 'clicker', 'finalPoll'];
 screens.forEach(screen => {
     const option = document.createElement('option');
     option.value = screen;
@@ -60,11 +60,11 @@ screenSelect.addEventListener('change', (event) => {
         ipcRenderer.send('change-screen-client', value);
     }
 
-    const clickerTable = document.querySelector('#clicker-table');
+    const clickerDisplay = document.querySelector('#clicker-display');
     if (value === 'clicker') {
-        clickerTable.hidden = false;
+        clickerDisplay.classList.remove('hide')
     } else {
-        clickerTable.hidden = true;
+        clickerDisplay.classList.add('hide')
     }
 })
 
@@ -81,10 +81,19 @@ ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
         const label = document.createElement('h2');
         label.innerText = question.label;
         pollResults.appendChild(label);
+
+        const totalVotes = question.responses.reduce((prev, total) => {
+            return prev + total.count
+        }, 0)
+
         question.responses.forEach(response => {
-            const responseCount = document.createElement('p');
-            responseCount.innerHTML = `${response.name} — Votes: ${response.count}`;
-            pollResults.appendChild(responseCount);
+            const responseBar = document.createElement('div');
+            
+            responseBar.classList.add('poll-stats-bar')
+            responseBar.style.width = `${(response.count/totalVotes)*100}%`;
+            responseBar.innerHTML = `<p><span>${response.count}</span> — ${response.name}</p>`;
+
+            pollResults.appendChild(responseBar);
         });
     });
 })

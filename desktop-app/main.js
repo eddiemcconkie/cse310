@@ -83,8 +83,13 @@ function createWindow() {
         // Update the team count on the main page
         function updateTeams() {
             let teamsCount = {red: teams.red.length, blue: teams.blue.length};
+            socket.emit('teamsCount', teamsCount)
             mainWindow.send('update-teams', teamsCount);
         }
+
+        socket.on('updateTeamsNow', (count) => {
+            mainWindow.send('update-teams', count)
+        })
 
         // Assign new users to a team and update their info
         let team;
@@ -112,6 +117,7 @@ function createWindow() {
                 pollResponses.questions[question].responses[response].count++;
                 // console.log('question:', question, 'response:', response, 'total:', pollResponses.questions[question].responses[response]);
             }
+            socket.emit('total-connected', (teams.red.length + teams.blue.length))
             mainWindow.send('update-poll-responses', pollResponses);
         })
         

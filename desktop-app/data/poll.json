@@ -39,7 +39,8 @@
         {
             "label": "Marvel or DC?",
             "responses": [
-                "Marvel"
+                "Marvel",
+                "DC"
             ]
         },
         {
