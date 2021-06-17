@@ -2,16 +2,18 @@
     "title": "\"What's your favorite\" questions",
     "questions": [
         {
-            "label": "What's your favorite restaurant?",
+            "label": "What's your favorite burger place?",
             "responses": [
-                "Cafe Rio",
-                "Panda Express",
+                "Burger King",
+                "Wendy's",
+                "McDonald's",
                 "In-N-Out",
-                "Wendy's"
+                "Five Guys",
+                "Other"
             ]
         },
         {
-            "label": "What is your favorite Star Wars movie?",
+            "label": "What's your favorite Star Wars movie?",
             "responses": [
                 "The Phantom Menace",
                 "Attack of the Clones",
@@ -22,14 +24,56 @@
             ]
         },
         {
-            "label": "What is your favorite breakfast cereal?",
+            "label": "Favorite breakfast cereal?",
             "responses": [
                 "Cap'n Crunch",
-                "Reese's Puffs",
+                "Cocoa Puffs",
                 "Frosted Flakes",
+                "Lucky Charms",
+                "Cinnamon Toast Crunch",
                 "Cheerios",
                 "Life",
-                "Raisin Bran 🤢"
+                "Other"
+            ]
+        },
+        {
+            "label": "Marvel or DC?",
+            "responses": [
+                "Marvel"
+            ]
+        },
+        {
+            "label": "Favorite soda?",
+            "responses": [
+                "Sprite",
+                "Root Beer",
+                "Mountain Dew",
+                "Coca-Cola",
+                "Dr. Pepper",
+                "Ginger Ale",
+                "Cream Soda",
+                "Other"
+            ]
+        },
+        {
+            "label": "Favorite genre of music?",
+            "responses": [
+                "Rock",
+                "Jazz",
+                "Hip Hop",
+                "Pop",
+                "EDM",
+                "Country",
+                "Other"
+            ]
+        },
+        {
+            "label": "Favorite teacher?",
+            "responses": [
+                "Bro. Grimmett",
+                "Bro. Grimmett",
+                "Bro. Grimmett",
+                "Bro. Grimmett"
             ]
         }
         {
