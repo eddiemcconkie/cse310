@@ -68,16 +68,7 @@
             ]
         },
         {
-            "label": "Favorite teacher?",
-            "responses": [
-                "Bro. Grimmett",
-                "Bro. Grimmett",
-                "Bro. Grimmett",
-                "Bro. Grimmett"
-            ]
-        }
-        {
-            "label": "What is your favorite color?",
+            "label": "Favorite color?",
             "responses": [
                 "Red",
                 "Blue",
@@ -85,6 +76,15 @@
                 "Yellow",
                 "Purple",
                 "Orange"
+            ]
+        },
+        {
+            "label": "Favorite teacher?",
+            "responses": [
+                "Bro. Grimmett",
+                "Bro. Grimmett",
+                "Bro. Grimmett",
+                "Bro. Grimmett"
             ]
         }
     ]
