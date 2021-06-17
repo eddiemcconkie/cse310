@@ -32,5 +32,16 @@
                 "Raisin Bran 🤢"
             ]
         }
+        {
+            "label": "What is your favorite color?",
+            "responses": [
+                "Red",
+                "Blue",
+                "Green",
+                "Yellow",
+                "Purple",
+                "Orange"
+            ]
+        }
     ]
 }
