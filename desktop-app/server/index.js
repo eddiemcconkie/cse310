@@ -22,7 +22,7 @@ socket.on('set-color', (color) => {
 
 const screens = {
     'homeclasses': renderHomeClasses,
-    'render-poll': renderPoll,
+    'poll': renderPoll,
     'waitscreen': renderWaitScreen,
     'clicker': renderClicker,
     'video': renderVideo

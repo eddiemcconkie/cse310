@@ -8,8 +8,7 @@
                 "Panda Express",
                 "In-N-Out",
                 "Wendy's"
-            ],
-            "choice": 1
+            ]
         },
         {
             "label": "What is your favorite Star Wars movie?",
@@ -20,8 +19,18 @@
                 "A New Hope",
                 "The Empire Strikes Back",
                 "Return of the Jedi"
-            ],
-            "choice": 2
+            ]
+        },
+        {
+            "label": "What is your favorite breakfast cereal?",
+            "responses": [
+                "Cap'n Crunch",
+                "Reese's Puffs",
+                "Frosted Flakes",
+                "Cheerios",
+                "Life",
+                "Raisin Bran 🤢"
+            ]
         }
     ]
 }

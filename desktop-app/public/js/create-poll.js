@@ -69,28 +69,30 @@ document.querySelector('#save-poll').addEventListener('click', () => {
     });
     // let jsonData = JSON.stringify(json);
     // document.querySelector('#json').value = jsonData;
-    ipcRenderer.send('post-poll', json);
-    document.querySelector('form').submit();
+    ipcRenderer.send('save-poll', json);
+    // document.querySelector('form').submit();
+
+
     // console.log(JSON.stringify(json));
     // console.log(json);
 })
 
 
-// Poll responses
-ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
-    // console.log(pollResponses);
-    const pollResults = document.querySelector('#poll-results');
-    pollResults.innerHTML = '';
+// // Poll responses
+// ipcRenderer.on('update-poll-responses', (event, pollResponses) => {
+//     // console.log(pollResponses);
+//     const pollResults = document.querySelector('#poll-results');
+//     pollResults.innerHTML = '';
 
-    pollResponses.questions.forEach(question => {
-        const label = document.createElement('h2');
-        label.innerText = question.label;
-        pollResults.appendChild(label);
-        question.responses.forEach(response => {
-            const responseCount = document.createElement('p');
-            responseCount.innerHTML = `${response.name} — Votes: ${response.count}`;
-            pollResults.appendChild(responseCount);
-        });
-    });
-})
+//     pollResponses.questions.forEach(question => {
+//         const label = document.createElement('h2');
+//         label.innerText = question.label;
+//         pollResults.appendChild(label);
+//         question.responses.forEach(response => {
+//             const responseCount = document.createElement('p');
+//             responseCount.innerHTML = `${response.name} — Votes: ${response.count}`;
+//             pollResults.appendChild(responseCount);
+//         });
+//     });
+// })
 

@@ -10,9 +10,13 @@
         <input type="text" name="msg" id="msg">
         <button type="submit" id="submit">Send</button>
     </form> -->
+    <select name="screen" id="screen">
+        <option disabled selected value>Select a screen to display</option>
+    </select>
+
     <p id="teams-count"></p>
     <!-- <p id="click-count"></p> -->
-    <table>
+    <table id="clicker-table" hidden>
         <tr>
             <th id="red-team-count" style="color: red"></th>
             <th id="blue-team-count" style="color: blue"></th>
@@ -22,9 +26,8 @@
             <td id="blue-click-count"></td>
         </tr>
     </table>
-    <select name="screen" id="screen">
-        <option disabled selected value>Select a screen to display</option>
-    </select>
+
+    <div id="poll-results"></div>
     
     <script src="js/server-test.js"></script>
 </body>

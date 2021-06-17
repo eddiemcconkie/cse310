@@ -42,20 +42,22 @@ function loadPoll(filename) {
 
 let pollResponses = {};
 
+ipcMain.on('save-poll', (event, pollData) => {
+    console.log(pollData);
+    fs.writeFileSync();
+})
+
 // Teacher sends poll to students
-ipcMain.on('post-poll', (event, pollData) => {
-    // io.emit('display-poll', pollData);
+ipcMain.on('display-poll', (event) => {
     let filename = 'poll.json';
     let data = loadPoll(filename);
     io.emit('display-poll', data);
-    // pollResponses = pollData;
     pollResponses = data;
     pollResponses.questions.forEach((question) => {
         question.responses = question.responses.map((response) => {
             return {name: response, count: 0}
         });
     })
-    // console.log(pollResponses.questions[0]);
 })
 
 function sendPoll(pollData) {
