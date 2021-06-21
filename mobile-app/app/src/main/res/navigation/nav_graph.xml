@@ -3,26 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/Homepage">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.mabileapp.FirstFragment"
-        android:label="@string/first_fragment_label"
-        tools:layout="@layout/fragment_first">
+        android:id="@+id/Homepage"
+        android:name="com.cse310.group_project.Homepage"
+        android:label="Homepage"
+        tools:layout="@layout/homepage">
 
         <action
-            android:id="@+id/action_FirstFragment_to_SecondFragment"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/action_Homepage_to_qrScanner"
+            app:destination="@id/CodeScanner" />
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
-        android:name="com.example.mabileapp.SecondFragment"
-        android:label="@string/second_fragment_label"
-        tools:layout="@layout/fragment_second">
+        android:id="@+id/CodeScanner"
+        android:name="com.cse310.group_project.CodeScanner"
+        android:label="Scan Class QR Code"
+        tools:layout="@layout/qr_scanner">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/action_qrScanner_to_Homepage"
+            app:destination="@id/Homepage" />
     </fragment>
+
 </navigation>

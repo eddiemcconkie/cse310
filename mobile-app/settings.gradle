@@ -1,2 +1,2 @@
+rootProject.name = "Group Project"
 include ':app'
-rootProject.name = "MabileApp"

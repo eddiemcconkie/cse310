@@ -1,4 +1,4 @@
-package com.example.mabileapp
+package com.cse310.group_project
 
 import org.junit.Test
 
