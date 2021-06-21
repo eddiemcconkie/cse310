@@ -1,4 +1,4 @@
-package com.example.mabileapp
+package com.cse310.group_project
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.example.mabileapp", appContext.packageName)
+        assertEquals("com.cse310.group_project", appContext.packageName)
     }
 }
