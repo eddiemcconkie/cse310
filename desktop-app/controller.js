@@ -84,8 +84,15 @@ exports.postAddClass = (req, res, next) => {
 
 
 exports.getQR = (req, res, next) => {
+    const classId = req.params.classId;
+    const filepath = path.join(__dirname, 'data', 'classes.json');
+    const allClassData = JSON.parse(fs.readFileSync(filepath));
+    const selectedClassData = allClassData.find(cls => cls.id == classId);
+    // console.log(selectedClassData);
     res.render('pages/qr-code.ejs', {
-        codeForQR: req.params.classId
+        // codeForQR: req.params.classId
+        // codeForQR: JSON.stringify("<%-selectedClassData %>"),
+        codeForQR: JSON.stringify(selectedClassData)
     })
 }
 
