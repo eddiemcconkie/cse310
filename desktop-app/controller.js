@@ -88,6 +88,11 @@ exports.getQR = (req, res, next) => {
     const filepath = path.join(__dirname, 'data', 'classes.json');
     const allClassData = JSON.parse(fs.readFileSync(filepath));
     const selectedClassData = allClassData.find(cls => cls.id == classId);
+    const port = process.env.PORT || 3000;
+    // selectedClassData.ip = "http://"+require("ip").address()+":"+port;
+    selectedClassData.ip = require("ip").address()+":"+port;
+    // selectedClassData.other = "OTHER";
+    console.log(selectedClassData)
     // console.log(selectedClassData);
     res.render('pages/qr-code.ejs', {
         // codeForQR: req.params.classId
