@@ -1,27 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classroom</title>
-    <link rel="stylesheet" href="css/index.css">
+  <meta charset="UTF-8">
+  <title>Sign in</title>
+  <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    <div id="page">
-        <!-- <p id="message"></p> -->
+  <form action="/home.html" method="get">
+    <div class="inputContainer">
+      <input type="text" name="username" id="username" required>
+      <label for="username">Enter your name</label>
     </div>
-
-    <!-- Socket script -->
-    <script src="/socket.io/socket.io.js"></script>
-    <!-- Scripts for loading each page -->
-    <script src="homeclasses.js"></script>
-    <script src="render-poll.js"></script>
-    <script src="waitscreen.js"></script>
-    <script src="clicker.js"></script>
-    <script src="video.js"></script>
-    <script src="finalPoll.js"></script>
-    <!-- Main script -->
-    <script src="index.js"></script>
+    <button type="submit">Sign in</button>
+  </form>
 </body>
 </html>

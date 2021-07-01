@@ -120,6 +120,10 @@ function createWindow() {
             socket.emit('total-connected', (teams.red.length + teams.blue.length))
             mainWindow.send('update-poll-responses', pollResponses);
         })
+
+        socket.on('joined-class', (username) => {
+            mainWindow.send('joined-class', username);
+        })
         
         // Remove users from their team when disconnected
         socket.on('disconnect', () => {

@@ -4,6 +4,14 @@ const { ipcRenderer } = require('electron');
 
 let clickCount = {red: 0, blue: 0};
 
+function lastStudentJoined(username) {
+    document.querySelector('#last-student-joined').innerText = username + ' has joined the pod!';
+}
+
+ipcRenderer.on('joined-class', (event, username) => {
+    lastStudentJoined(username);
+})
+
 function displayClickCount() {
     document.querySelector('#red-click-count').innerHTML = clickCount.red;
     document.querySelector('#blue-click-count').innerHTML = clickCount.blue;

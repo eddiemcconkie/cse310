@@ -293,4 +293,10 @@ div.weekDayChoice div.mChoiceContainer input:checked + label {
             transform: rotate(0deg);
         }
     }
+
+    #last-student-joined {
+        position: fixed;
+        top: 5px;
+        right: 10px;
+    }
 /* Clicker display styles */

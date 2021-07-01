@@ -1,6 +1,11 @@
 // Student client page
 
+const urlParams = new URLSearchParams(window.location.search);
+const username = urlParams.get('username');
+
 const socket = io();
+
+socket.emit('joined-class', username);
 
 // const { renderPoll } = require('./renderPoll.js');
 // import { renderPoll } from './renderPoll.js';
