@@ -7,6 +7,18 @@ const socket = io();
 
 socket.emit('joined-class', username);
 
+let handRaised = false;
+const raiseHand = document.querySelector('#raise-hand');
+raiseHand.addEventListener('click', () => {
+    handRaised = !handRaised;
+    raiseHand.textContent = handRaised ? "Lower Hand" : "Raise Hand";
+    if (handRaised) {
+        socket.emit('raise-hand', username);
+    } else {
+        socket.emit('lower-hand');
+    }
+})
+
 // const { renderPoll } = require('./renderPoll.js');
 // import { renderPoll } from './renderPoll.js';
 

@@ -64,6 +64,8 @@ function sendPoll(pollData) {
     
 }
 
+let raisedHands = [];
+
 function createWindow() {
     const mainWindow = new BrowserWindow({
         width: 800,
@@ -74,6 +76,10 @@ function createWindow() {
             contextIsolation: false
         }
     })
+
+    function updateRaisedHands() {
+        mainWindow.send('update-raised-hands', raisedHands);
+    }
 
     // Socket connection
     io.on('connection', socket => {
@@ -124,6 +130,20 @@ function createWindow() {
         socket.on('joined-class', (username) => {
             mainWindow.send('joined-class', username);
         })
+
+        function lowerHand() {
+            raisedHands = raisedHands.filter(student => student.id !== id);
+            updateRaisedHands();
+        }
+
+        socket.on('raise-hand', (username) => {
+            raisedHands.push({id, username});
+            updateRaisedHands();
+        })
+
+        socket.on('lower-hand', () => {
+            lowerHand();
+        })
         
         // Remove users from their team when disconnected
         socket.on('disconnect', () => {
@@ -131,6 +151,7 @@ function createWindow() {
             let index = teams[team].indexOf(id);
             teams[team].splice(index, 1);
             updateTeams();
+            lowerHand();
         })
     })
 

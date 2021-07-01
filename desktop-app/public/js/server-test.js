@@ -12,6 +12,17 @@ ipcRenderer.on('joined-class', (event, username) => {
     lastStudentJoined(username);
 })
 
+const raisedHandsList = document.querySelector('#raised-hands');
+ipcRenderer.on('update-raised-hands', (event, raisedHands) => {
+    if (raisedHands.length > 0) {
+        raisedHandsList.innerHTML = `<h3>Raised Hands</h3>` + raisedHands.map(student => `<p>${student.username}</p>`).join('');
+        raisedHandsList.hidden = false;
+    } else {
+        raisedHandsList.innerText = '';
+        raisedHandsList.hidden = true;
+    }
+})
+
 function displayClickCount() {
     document.querySelector('#red-click-count').innerHTML = clickCount.red;
     document.querySelector('#blue-click-count').innerHTML = clickCount.blue;
