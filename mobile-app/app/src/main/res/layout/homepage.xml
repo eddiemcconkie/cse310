@@ -34,7 +34,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Class 1"
+            android:text="CSE 310 - Section 1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="20dp"
-            android:text="First dummy class details"
+            android:text="Class details for CSE 310"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
     </androidx.cardview.widget.CardView>
@@ -65,7 +65,7 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Class 2"
+            android:text="WDD 330 - Section 1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <TextView
@@ -74,7 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="20dp"
-            android:text="Second dummy class details"
+            android:text="Class details for WDD 330"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
     </androidx.cardview.widget.CardView>
 
