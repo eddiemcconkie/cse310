@@ -10,11 +10,19 @@ const dotenv = require('dotenv');
 dotenv.config();
 const port = process.env.PORT || 3000;
 
-const http = require('http');
+const https = require('https');
 const socketio = require('socket.io');
 const serverApp = express();
 
-const server = http.createServer(serverApp);
+const fs = require('fs');
+
+const server = https.createServer(
+    {
+        cert: fs.readFileSync(path.join(__dirname, 'cert', 'cert.pem')),
+        key: fs.readFileSync(path.join(__dirname, 'cert', 'key.pem'))
+    },
+    serverApp
+);
 const io = socketio(server);
 
 let teams = {red: [], blue: []}
@@ -32,8 +40,6 @@ ipcMain.on('change-screen-client', (event, screen) => {
     // console.log(event, screen);
     io.emit('change-screen-client', screen);
 })
-
-const fs = require('fs');
 
 function loadPoll(filename) {
     const filepath = path.join(__dirname, 'data', filename);

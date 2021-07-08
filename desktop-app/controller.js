@@ -103,7 +103,7 @@ exports.getQR = (req, res, next) => {
 
 exports.getDemoQR = (req, res, next) => {
     res.render('pages/qr-code.ejs', {
-        codeForQR: "http://"+require("ip").address()+":8000"
+        codeForQR: "https://"+require("ip").address()+":8000"
     })
 }
 
