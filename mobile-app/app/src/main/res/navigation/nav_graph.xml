@@ -14,9 +14,6 @@
         <action
             android:id="@+id/action_Homepage_to_qrScanner"
             app:destination="@id/CodeScanner" />
-        <action
-            android:id="@+id/action_Homepage_to_webView"
-            app:destination="@id/WebView" />
     </fragment>
     <fragment
         android:id="@+id/CodeScanner"
@@ -26,15 +23,6 @@
 
         <action
             android:id="@+id/action_qrScanner_to_Homepage"
-            app:destination="@id/Homepage" />
-    </fragment>
-    <fragment
-        android:id="@+id/WebView"
-        android:name="com.cse310.group_project.WebView"
-        android:label="Class"
-        tools:layout="@layout/web_view" >
-        <action
-            android:id="@+id/action_webView_to_Homepage2"
             app:destination="@id/Homepage" />
     </fragment>
 

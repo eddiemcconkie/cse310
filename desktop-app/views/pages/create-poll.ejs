@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Poll</title>
+    <!-- <link rel="stylesheet" href="main.css"> -->
+    <script src="/js/create-poll.js" defer></script>
+</head>
+<body>
+    <form action="/create-poll" method="post">
+        <input type="text" name="title" id="title">
+        <ul id="questions-list"></ul>
+        <button type="button" id="add-question-button">Add question</button>
+        <button type="button" id="save-poll">Save</button>
+        <input type="text" name="json" id="json" hidden="true">
+    </form>
+    <!-- <div id="poll-results"></div> -->
+    <a href="/">Back</a>
+</body>
+</html>

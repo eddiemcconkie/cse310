@@ -1,0 +1,32 @@
+{
+    "title": "Quiz time!",
+    "questions": [
+        {
+            "label": "Who was the first President of the United States?",
+            "responses": [
+                "George Washington",
+                "George Bush",
+                "George Lucas",
+                "George Clooney",
+                "Bro. Grimmett"
+            ]
+        },
+        {
+            "label": "Who is the richest man in the world?",
+            "responses": [
+                "Jeff Bezos",
+                "Elon Musk",
+                "Bernard Something",
+                "Mark Zuckerberg",
+                "Bro. Grimmett"
+            ]
+        },
+        {
+            "label": "Who is the most popular actor?",
+            "responses": [
+                "I don't know",
+                "Bro. Grimmett"
+            ]
+        }
+    ]
+}

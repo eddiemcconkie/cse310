@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@400&display=swap');
+
+#page, body, html {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+}
+#page {
+    overflow-y: auto;
+}
+
+.red {
+    color: red;
+}
+.blue {
+    color: blue;
+}
+
+* {
+    font-family: sans-serif;
+}
+h1 {
+    text-align: center;
+}
+p.centered {
+    width: max-content;
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+}
+
+
+/* "Student view" styles */
+    .mobile-class {
+        width: 85%;
+        padding: 1rem;
+        border-radius: 5px;
+        margin: 1.5rem auto;
+        box-shadow: 2px 2px 6px darkslategray;
+        grid-template-columns: max-content auto;
+        grid-column-gap: 10px;
+        align-items: center;
+        display: grid;
+    }
+    .mobile-class * {
+        margin: 0;
+    }
+    .mobile-class h2 {
+        font-family: monospace;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }
+    .mobile-class h4 {
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mobile-class span {
+        padding-left: 10px;
+    }
+    .mobile-add-class {
+        margin-left: 50%;
+        transform: translate(-50%, 0);
+    }
+/* "Student view" styles */
+
+
+/* Wait screen styles */
+    .allCentered {
+        display: grid;
+        width: 100%;
+        height: 80%;
+        justify-items: center;
+        align-items: center;
+    }
+    .allCentered p {
+        font-family: 'Exo';
+        font-size: 1.1rem;
+    }
+    .allCentered h1 {
+        font-family: 'Exo';
+    }
+    #loading {
+        width: 60px;
+        height: 60px;
+        margin: 20px auto;
+        position: relative;
+        animation: load 1s linear infinite;
+    }
+    #loading img {
+        position: absolute;
+        transform: translate(-30%, -100%) rotate(10deg);
+        border-radius: 100%;
+        background: none;
+        width: 70%;
+        left: 50%;
+        top: 50%;
+    }
+
+    @keyframes load {
+        from {
+            transform: rotate(360deg);
+        }
+        to {
+            transform: rotate(0deg);
+        }
+    }
+/* Wait screen styles */
+
+
+/* Video screen styles */
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+/* Video screen styles */
+
+
+/* Poll styles */
+    h2.centered {
+        text-align: center;
+        padding: 0 0.5rem;
+    }
+    form {
+        width: 90%;
+        margin: auto;
+    }
+    form h4 {
+        text-align: center;
+        font-family: 'Exo', sans-serif;
+    }
+    select {
+        width: 90%;
+        margin: 0 auto;
+        font-size: 1rem;
+        border: 2px solid black;
+        border-radius: 5px;
+        padding: 0.5rem;
+        display: block;
+    }
+    select option {
+        font-size: 0.9rem;
+        padding: 0;
+    }
+    form button {
+        width: 70%;
+        display: block;
+        margin: 10px auto;
+        padding: 0.5rem;
+    }
+/* Poll styles */
+
+
+/* Final poll styles */
+    .inputContainer {
+        position: relative;
+    }
+    .inputContainer input + label,
+    .inputContainer textarea + label {
+        position: absolute;
+        left: 1.4rem;
+        top: 1rem;
+        font-family: 'Exo', sans-serif;
+        font-size: 1rem;
+        transition: left 0.3s,
+                    top 0.1s,
+                    font-size 0.3s;
+    }
+    .inputContainer input:active + label,
+    .inputContainer input:focus + label,
+    .inputContainer textarea:active + label,
+    .inputContainer textarea:focus + label,
+    .inputContainer input:valid + label,
+    .inputContainer textarea:valid + label {
+        left: 1.2rem;
+        top: 0.4rem;
+        font-size: 0.75rem;
+    }
+
+    form input {
+        padding: 1.25rem 0.5rem 0.5rem;
+        border-radius: 5px;
+        border: 4px solid rgb(65, 105, 225);
+        position: relative;
+        display: block;
+        color: black;
+        outline: none;
+        margin: 10px;
+        width: calc(90% - 4px - 0.5rem);
+    }
+    form input:focus {
+        box-shadow: inset 0 0 5px darkslategray;
+    }
+/* Final poll styles */
+
+
+/* Dolphin clicker */
+    #clicker {
+        width: 100%;
+        height: 100%;
+    }
+    #clicker p {
+        text-align: center;
+        width: 100%;
+    }
+    .dolphin {
+        width: 100%;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 80%;
+    }
+    .dolphin.red {
+        background-image: url('../images/dolphin-red.png');
+    }
+    .dolphin.blue {
+        background-image: url('../images/dolphin-blue.png');
+    }
+/* Dolphin clicker */

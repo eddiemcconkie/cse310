@@ -1,5 +1,6 @@
 const fs = require("fs")
 const path = require("path")
+const {ipcRenderer} = require('electron');
 const classDataFilePath = path.join(__dirname,'data','classes.json')
 
 function readClassFile(cb) {
@@ -83,7 +84,45 @@ exports.postAddClass = (req, res, next) => {
 
 
 exports.getQR = (req, res, next) => {
+    const classId = req.params.classId;
+    const filepath = path.join(__dirname, 'data', 'classes.json');
+    const allClassData = JSON.parse(fs.readFileSync(filepath));
+    const selectedClassData = allClassData.find(cls => cls.id == classId);
+    const port = process.env.PORT || 3000;
+    // selectedClassData.ip = "http://"+require("ip").address()+":"+port;
+    selectedClassData.ip = require("ip").address()+":"+port;
+    // selectedClassData.other = "OTHER";
+    console.log(selectedClassData)
+    // console.log(selectedClassData);
     res.render('pages/qr-code.ejs', {
-        codeForQR: req.params.classId
+        // codeForQR: req.params.classId
+        // codeForQR: JSON.stringify("<%-selectedClassData %>"),
+        codeForQR: JSON.stringify(selectedClassData)
     })
+}
+
+exports.getDemoQR = (req, res, next) => {
+    res.render('pages/qr-code.ejs', {
+        codeForQR: "https://"+require("ip").address()+":8000"
+    })
+}
+
+exports.getTestServer = (req, res, next) => {
+    res.render('pages/server-test.ejs', {});
+}
+
+exports.postSendMessage = (req, res, next) => {
+    let msg = req.body.msg;
+    // console.log(msg);
+    res.redirect('/', msg);
+}
+
+exports.getCreatePoll = (req, res, next) => {
+    res.render('pages/create-poll.ejs', {})
+}
+
+exports.postCreatePoll = (req, res, next) => {
+    // console.log(req.body.json);
+    // res.render('pages/poll-results.ejs');
+    // ipcRenderer.send('post-poll', req.body.json);
 }

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Server Controller</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <button onclick="window.open('/demo-qr-display', 'QR Code', 'width=600, height=600')">Generate Demo QR Code</button>
+    <ul id="users"></ul>
+    <!-- <form action="/send-message" method="post">
+        <input type="text" name="msg" id="msg">
+        <button type="submit" id="submit">Send</button>
+    </form> -->
+    <select name="screen" id="screen">
+        <option disabled selected value>Select a screen to display</option>
+    </select>
+
+    <p id="teams-count"></p>
+    <!-- <p id="click-count"></p> -->
+    <div id="clicker-display" class="hide">
+        <span id="red-team-count" style="color: red"></span>
+        <span id="blue-team-count" style="color: blue"></span>
+        <span id="red-click-count"></span>
+        <span id="blue-click-count"></span>
+    </div>
+
+    <div id="poll-results"></div>
+
+    <div id="last-student-joined"></div>
+
+    <div id="raised-hands"></div>
+    
+    <script src="js/server-test.js"></script>
+</body>
+<footer>
+    <a href="/">Back</a>
+</footer>
+</html>
