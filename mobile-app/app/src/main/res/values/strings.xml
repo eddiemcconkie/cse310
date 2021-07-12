@@ -5,6 +5,7 @@
     <!--  Strings used for fragments for navigation  -->
     <string name="homepage_label">Homepage</string>
     <string name="qr_scanner_label">Scan Class QR Code</string>
+    <string name="web_view_label">Class</string>
     <string name="new_class">Add Class</string>
     <string name="hello_first_fragment">Hello First Fragment</string>
 </resources>
