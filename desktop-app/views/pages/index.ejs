@@ -11,17 +11,18 @@
         <%- include('../includes/header.ejs') %>
         <main>
             <% if (classes.length > 0) { %>
-                <ul class="classSectionList">
+                <ul class="classSectionList topPadded">
                     <% classes.forEach((classData) => { %>
                         <li class="classListItem">
                             <h3><%= classData.name %>: Section <%= classData.section %></h3>
                             <div class="buttonFlex">
-                                <button><img src="/images/start-class.png" alt="start class"></button>
-                                <form action="/edit-class-view" method="post">
+                                <a href="/test-server" class="btn"><img src="/images/start-class.png" alt="start class"></a>
+                                <form action="/edit-class-view" method="post" class="buttonForm">
                                     <input type="hidden" name="editClassId" value="<%= classData.id %>">
                                     <button type="submit"><img src="/images/edit-class.png" alt="edit class"></button>
                                 </form>
                                 <button onclick="window.open('/class/<%= classData.id %>/qr-code', 'QR Code', 'width=600, height=600')"><img src="/images/qr-code.png" alt="qr code"></button>
+                                <a class="btn" href="/create-poll"><img src="/images/poll.png" alt="create poll"></a>
                             </div>
                         </li>
                     <% }) %>
@@ -34,9 +35,6 @@
                 <a class="addClass centered" href="/add-class">+</a>
             <% } %>
         </main>
-
-        <a href="/test-server">Test Server</a>
-        <a class="createPoll" href="/create-poll">Create poll</a>
 
         </main>
 

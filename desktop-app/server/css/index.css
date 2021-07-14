@@ -144,23 +144,20 @@ p.centered {
         font-size: 0.9rem;
         padding: 0;
     }
-    form button {
-        width: 70%;
-        display: block;
-        margin: 10px auto;
-        padding: 0.5rem;
-    }
 /* Poll styles */
 
 
 /* Final poll styles */
     .inputContainer {
         position: relative;
+        max-width: 500px;
+        margin: 0 auto;
+        width: 100%;
     }
     .inputContainer input + label,
     .inputContainer textarea + label {
-        position: absolute;
         left: 1.4rem;
+        position: absolute;
         top: 1rem;
         font-family: 'Exo', sans-serif;
         font-size: 1rem;
@@ -174,21 +171,38 @@ p.centered {
     .inputContainer textarea:focus + label,
     .inputContainer input:valid + label,
     .inputContainer textarea:valid + label {
-        left: 1.2rem;
+        left: 0.6rem;
         top: 0.4rem;
         font-size: 0.75rem;
     }
 
     form input {
-        padding: 1.25rem 0.5rem 0.5rem;
         border-radius: 5px;
+        padding: 1.25rem 0.5rem 0.5rem;
         border: 4px solid rgb(65, 105, 225);
+        width: calc(100% - 1rem - 8px);
         position: relative;
+        margin: 10px auto;
+        max-width: 500px;
         display: block;
         color: black;
         outline: none;
-        margin: 10px;
-        width: calc(90% - 4px - 0.5rem);
+    }
+    input[type="submit"] {
+        margin: auto;
+        display: block;
+        padding: 0.5rem;
+        font-size: 1rem;
+        max-width: 500px;
+        font-weight: bold;
+        border-radius: 5px;
+        text-decoration: none;
+        color: rgb(65, 105, 225);
+        width: calc(100% - 1rem - 8px);
+        background-color: rgba(65, 105, 225, 0.1);
+        border: 4px solid rgb(65, 105, 225);
+        transition: background-color 0.3s,
+                    color 0.3s;
     }
     form input:focus {
         box-shadow: inset 0 0 5px darkslategray;
@@ -203,11 +217,13 @@ p.centered {
     }
     #clicker p {
         text-align: center;
+        padding: 1rem 0;
         width: 100%;
+        margin: 0;
     }
     .dolphin {
         width: 100%;
-        height: 100%;
+        height: calc(100% - 2rem - 1.25rem);
         background-repeat: no-repeat;
         background-position: center;
         background-size: 80%;
@@ -219,3 +235,26 @@ p.centered {
         background-image: url('../images/dolphin-blue.png');
     }
 /* Dolphin clicker */
+
+
+/* Raise Hand Button */
+    #raise-hand {
+        text-align: center;
+        justify-items: center;
+        grid-template-columns: 40px 40px;
+        align-items: center;
+        width: max-content;
+        position: fixed;
+        display: grid;
+        bottom: 0;
+        right: 0;
+    }
+    #raise-hand * {
+        display: block;
+        grid-row: 1;
+    }
+    #raise-hand img {
+        width: 40px;
+        grid-column: 2;
+    }
+/* Raise Hand Button */

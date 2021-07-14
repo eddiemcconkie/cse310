@@ -3,6 +3,7 @@
 const { ipcRenderer } = require('electron');
 
 let clickCount = {red: 0, blue: 0};
+let pageOn = 'waitscreen'
 
 function lastStudentJoined(username) {
     document.querySelector('#last-student-joined').innerText = username + ' has joined the pod!';
@@ -57,21 +58,28 @@ ipcRenderer.on('update-teams', (event, teamsCount) => {
 // })
 
 
-const screenSelect = document.querySelector('#screen');
-// console.log(screenSelect);
-
-const screens = ['homeclasses', 'waitscreen', 'poll', 'video', 'clicker', 'finalPoll'];
+const screenSelect = document.querySelector('#screenPicker');
+const screens = ['waitscreen', 'poll', 'video', 'clicker'];
 screens.forEach(screen => {
-    const option = document.createElement('option');
-    option.value = screen;
-    option.innerText = screen;
-    // document.querySelector('select').appendChild(option);
-    screenSelect.appendChild(option);
+    let radio = document.createElement('input');
+        radio.value = screen;
+        radio.name = "screenName"
+        radio.type = "radio"
+        radio.checked = (pageOn === screen)
+
+    let span = document.createElement('span')
+        span.textContent = screen[0].toUpperCase()+screen.substring(1, screen.length)
+
+    let label = document.createElement('label')
+        label.appendChild(radio)
+        label.appendChild(span)
+    
+    
+    screenSelect.appendChild(label);
 });
 screenSelect.addEventListener('change', (event) => {
     const value = event.target.value;
-    // const option = document.createElement('option');
-    // option.value = value;
+    pageOn = value
     if (value === 'poll') {
         ipcRenderer.send('display-poll');
     } else {
@@ -81,6 +89,21 @@ screenSelect.addEventListener('change', (event) => {
 
     const clickerDisplay = document.querySelector('#clicker-display');
     if (value === 'clicker') {
+        clickerDisplay.classList.remove('hide')
+    } else {
+        clickerDisplay.classList.add('hide')
+    }
+})
+ipcRenderer.on('changeScreen', () => {
+    if (pageOn === 'poll') {
+        ipcRenderer.send('display-poll');
+    } else {
+        document.querySelector('#poll-results').innerHTML = '';
+        ipcRenderer.send('change-screen-client', pageOn);
+    }
+
+    const clickerDisplay = document.querySelector('#clicker-display');
+    if (pageOn === 'clicker') {
         clickerDisplay.classList.remove('hide')
     } else {
         clickerDisplay.classList.add('hide')

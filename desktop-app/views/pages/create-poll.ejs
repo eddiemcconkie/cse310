@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Create Poll</title>
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/create-poll.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <title>Create Poll</title>
 </head>
 <body>
-    <form action="/create-poll" method="post">
-        <input type="text" name="title" id="title">
-        <ul id="questions-list"></ul>
-        <button type="button" id="add-question-button">Add question</button>
-        <button type="button" id="save-poll">Save</button>
+    <%- include('../includes/header.ejs') %>
+    <h2 class="centered topPadded">Create Poll</h2>
+    <form action="/create-poll" method="post" class="centered">
+        <div class="inputContainer">
+            <input type="text" name="title" id="title" required>
+            <label for="title">Poll Title</label>
+        </div>
+        <ul id="questionsList"></ul>
+        <hr>
+        <button type="button" id="addQuestionButton">Add question</button>
+        <button type="button" id="savePoll">Save</button>
         <input type="text" name="json" id="json" hidden="true">
     </form>
     <!-- <div id="poll-results"></div> -->
-    <a href="/">Back</a>
 </body>
 </html>

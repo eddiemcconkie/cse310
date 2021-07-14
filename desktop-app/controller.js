@@ -12,8 +12,9 @@ function readClassFile(cb) {
 
 exports.getHomepage = (req, res, next) => {
     readClassFile(classData => {
-        res.render('pages/index.ejs', {
-            classes: classData
+        res.render('pages/index', {
+            classes: classData,
+            showBackIcon: false
         })
     })
 }
@@ -23,7 +24,7 @@ exports.getEditClass = (req, res, next) => {
         const editClass = classData.filter(singleClass => {
             return singleClass.id === req.body.editClassId
         })
-        res.render('pages/class-details-form.ejs', {
+        res.render('pages/class-details-form', {
             editing: true,
             classData: editClass[0]
         })
@@ -55,7 +56,7 @@ exports.postEditClass = (req, res, next) => {
 }
 
 exports.getAddClass = (req, res, next) => {
-    res.render('pages/class-details-form.ejs', {
+    res.render('pages/class-details-form', {
         editing: false
     })
 }
@@ -94,7 +95,7 @@ exports.getQR = (req, res, next) => {
     // selectedClassData.other = "OTHER";
     console.log(selectedClassData)
     // console.log(selectedClassData);
-    res.render('pages/qr-code.ejs', {
+    res.render('pages/qr-code', {
         // codeForQR: req.params.classId
         // codeForQR: JSON.stringify("<%-selectedClassData %>"),
         codeForQR: JSON.stringify(selectedClassData)
@@ -102,13 +103,13 @@ exports.getQR = (req, res, next) => {
 }
 
 exports.getDemoQR = (req, res, next) => {
-    res.render('pages/qr-code.ejs', {
+    res.render('pages/qr-code', {
         codeForQR: "https://"+require("ip").address()+":8000"
     })
 }
 
 exports.getTestServer = (req, res, next) => {
-    res.render('pages/server-test.ejs', {});
+    res.render('pages/server-test', {});
 }
 
 exports.postSendMessage = (req, res, next) => {
@@ -118,11 +119,11 @@ exports.postSendMessage = (req, res, next) => {
 }
 
 exports.getCreatePoll = (req, res, next) => {
-    res.render('pages/create-poll.ejs', {})
+    res.render('pages/create-poll', {})
 }
 
 exports.postCreatePoll = (req, res, next) => {
     // console.log(req.body.json);
-    // res.render('pages/poll-results.ejs');
+    // res.render('pages/poll-results');
     // ipcRenderer.send('post-poll', req.body.json);
 }

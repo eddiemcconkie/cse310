@@ -135,6 +135,7 @@ function createWindow() {
 
         socket.on('joined-class', (username) => {
             mainWindow.send('joined-class', username);
+            mainWindow.send('changeScreen')
         })
 
         function lowerHand() {
@@ -169,6 +170,10 @@ app.whenReady().then(() => {
               .set('views', path.join(__dirname,'views'))
               .use(bodyParser.urlencoded({extended: false}))
               .use(express.static(path.join(__dirname, 'public')))
+              .use((req, res, next) => {
+                    res.locals.showBackIcon = true
+                    next()
+              })
               .use(routes)
               .listen(5500, () => {
                   createWindow()

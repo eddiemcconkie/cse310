@@ -11,7 +11,7 @@ let handRaised = false;
 const raiseHand = document.querySelector('#raise-hand');
 raiseHand.addEventListener('click', () => {
     handRaised = !handRaised;
-    raiseHand.textContent = handRaised ? "Lower Hand" : "Raise Hand";
+    raiseHand.querySelector('span').textContent = handRaised ? "Lower Hand" : "Raise Hand";
     if (handRaised) {
         socket.emit('raise-hand', username);
     } else {
@@ -44,16 +44,14 @@ socket.on('teamsCount', (count) => {
 })
 
 const screens = {
-    'homeclasses': renderHomeClasses,
     'waitscreen': renderWaitScreen,
     'poll': renderPoll,
     'video': renderVideo,
-    'clicker': renderClicker,
-    'finalPoll': loadFinalPoll
+    'clicker': renderClicker
 }
 
 // Automatically load the home classes view
-screens['homeclasses']()
+screens['waitscreen']()
 
 socket.on('change-screen-client', (screen) => {
     screens[screen]();
