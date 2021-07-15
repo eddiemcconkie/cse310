@@ -4,7 +4,6 @@
 
 
 
----
 ## Team Members
 
 | Name           | GitHub Username |
