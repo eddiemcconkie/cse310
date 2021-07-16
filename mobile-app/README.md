@@ -1,7 +1,14 @@
 # CSE 310 - Team Project (Mobile App in Kotlin)
-This is the mobile app, built with Kotlin
+The Mobile App has been created for students to have the ability to interact with their teacher during class. It works directly with the desktop app controlled by the teacher.
 
-## Setting Up For Viewing
+# Description:
+This mobile app was created using Android Studio and Kotlin. A codescanner Library was used to implement a qr code for students to add a class to their phone.
+
+# How it works:
+Once installed the student will see an empty screen with a button to add/join a new class on their phone. Once clicked the code scanner view will pop up and students can scan a generated QR code from the teacher desktop app. Once scanned the app will return to the homepage view with the new class displayed. To view how this work please watch the
+[Tutorial Video](../README.md).
+
+## Mobile App Viewing
 If you would like to interact with the mobile app you can do the following:
  - Clone the repository using your terminal, VSCode, etc.
  - Download [Android Studio](https://developer.android.com/studio/) (with the emulator) if you don't already have it.
